@@ -1,0 +1,15 @@
+{
+  "short_name": "the crush map.",
+  "name": "the crush map.",
+  "icons": [
+    {
+      "src": "crush_heart.svg",
+      "sizes": "188x150",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ff5143"
+}
