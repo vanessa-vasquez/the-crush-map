@@ -1,27 +1,27 @@
-import React from 'react'
+import React from 'react';
 
 export default function VisualizationControls(props) {
-    const cy = props.cy;
-    const currentUserUni = props.userUni;
+  const cy = props.cy;
+  const currentUserUni = props.userUni;
 
-    const centerView = () => {
-        var node = cy.$('#' + currentUserUni);
-        cy.center( node );
-    }
+  const centerView = () => {
+    var node = cy.$('#' + currentUserUni);
+    cy.center(node);
+  };
 
-    const viewAll = () => {
-        cy.fit(); 
-    }
+  const viewAll = () => {
+    cy.fit();
+  };
 
-    const resetView = () => {
-        cy.reset();
-    }
+  const resetView = () => {
+    cy.reset();
+  };
 
   return (
-    <div className='cy-options'>
-            <button onClick={centerView}>Center</button> <br />
-            <button onClick={viewAll}>View All</button> <br />
-            <button onClick={resetView}>Reset</button>
+    <div className="cy-options">
+      <button onClick={centerView}>Center</button> <br />
+      <button onClick={viewAll}>View All</button> <br />
+      <button onClick={resetView}>Reset</button>
     </div>
-  )
+  );
 }

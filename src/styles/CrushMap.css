@@ -1,124 +1,128 @@
 /* Identifier.js */
-.user-info{
-    font-size: 25px;
+.user-info {
+  font-size: 25px;
 }
 
-#log-out-btn, #submit-btn, .cy-options button{
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    font-weight: 400; 
+#log-out-btn,
+#submit-btn,
+.cy-options button {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-weight: 400;
 }
 
-#log-out-btn:hover, .cy-options button:hover {
-    background-color: #bababa;
+#log-out-btn:hover,
+.cy-options button:hover {
+  background-color: #bababa;
 }
 
-#log-out-btn{
-    float: right;
-    margin-bottom: 30px;
+#log-out-btn {
+  float: right;
+  margin-bottom: 30px;
 }
 
 /* InsertBar.js */
 #submit-btn:hover {
-    background-image: url("../assets/crush_heart.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    color: transparent;
+  background-image: url('../assets/crush_heart.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
 }
 
-#submit-btn{
-    padding: 0px 15px 0px 15px;
+#submit-btn {
+  padding: 0px 15px 0px 15px;
 }
 
-/* CrushList.js, Visualization.js */ 
-.delete-btn{
-    border-style: none;
-    background-color: transparent;
-    color: black;
+/* CrushList.js, Visualization.js */
+.delete-btn {
+  border-style: none;
+  background-color: transparent;
+  color: black;
 }
 
-.delete-btn:hover{
-    transform: scale(1.2);
+.delete-btn:hover {
+  transform: scale(1.2);
 }
 
-.crush{
-    margin-top: 20px;
+.crush {
+  margin-top: 20px;
 }
 
 /* Medium size screens and bigger */
 @media only screen and (min-width: 768px) {
-    label{
-        margin-bottom: 20px;
-        margin-right: 20px;
-    }
+  label {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
 
-    #add-crush{
-        width: 60%;
-        margin-right: 40px;
-    }
+  #add-crush {
+    width: 60%;
+    margin-right: 40px;
+  }
 
-    #list, #cy{
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 10px;
-        width:  100%;
-        height: 80vh;
-        background-color: white;
-    }
+  #list,
+  #cy {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+  }
 
-    .cy-options button{
-        width: 100%;
-        margin-bottom: 10px;
-    }
+  .cy-options button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 /* Extra small size screens */
 @media only screen and (max-width: 575px) {
-    label{
-        display: none;
-    }
+  label {
+    display: none;
+  }
 
-    #add-crush{
-        width: 60%;
-        margin-bottom: 20px;
-    }
+  #add-crush {
+    width: 60%;
+    margin-bottom: 20px;
+  }
 
-    #list, #cy{
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 10px;
-        width:  100%;
-        height: 60vh;
-        background-color: white;
-    }
+  #list,
+  #cy {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    width: 100%;
+    height: 60vh;
+    background-color: white;
+  }
 
-    #submit-btn{
-        float: right;
-    }
+  #submit-btn {
+    float: right;
+  }
 
-    #toggle-crushes-btn{
-        border-style: none;
-        background-color: transparent;
-        margin-bottom: 10px;
-        color: black;
-    }
+  #toggle-crushes-btn {
+    border-style: none;
+    background-color: transparent;
+    margin-bottom: 10px;
+    color: black;
+  }
 
-    #toggle-crushes-chevron{
-        margin-left: 5px;
-        transition-duration: 0.5s;
-    }
+  #toggle-crushes-chevron {
+    margin-left: 5px;
+    transition-duration: 0.5s;
+  }
 
-    .toggle{
-        transform: rotate(90deg);
-    }
+  .toggle {
+    transform: rotate(90deg);
+  }
 
-    .cy-options button{
-        width: 100%;
-        margin-bottom: 10px;
-    }
+  .cy-options button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
-

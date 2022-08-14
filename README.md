@@ -8,6 +8,7 @@ This project was built using React, Bootstrap, CytoscapeJS, and Firebase.
 ![](/public/web-screenshot.png)
 
 ## set-up
+
 1. Install the dependencies: `npm install`
-2. Since this project uses Firebase, you will need to add your Firebase credentials to a .env file. Make sure to add your .env file to your .gitignore file as well. 
+2. Since this project uses Firebase, you will need to add your Firebase credentials to a .env file. Make sure to add your .env file to your .gitignore file as well.
 3. Once you have set up Firebase with your own credentials, run a local development server: `npm start`.
