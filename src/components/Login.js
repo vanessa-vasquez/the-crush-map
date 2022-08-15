@@ -16,9 +16,8 @@ export default function Login() {
 
   const logUser = async (e) => {
     e.preventDefault();
-    console.log('hey');
 
-    let email = uni + '@columbia.edu';
+    const email = uni + '@columbia.edu';
 
     try {
       setError('');
@@ -52,7 +51,7 @@ export default function Login() {
               name="uni"
               onChange={(e) => setUni(e.target.value)}
               placeholder="Columbia UNI"
-            />{' '}
+            />
             <br />
             <input
               type="password"
@@ -60,11 +59,11 @@ export default function Login() {
               name="pass"
               onChange={(e) => setPass(e.target.value)}
               placeholder="Password"
-            />{' '}
+            />
             <br />
             <span>
-              Don't have an account? <NavLink to="/">Sign up here!</NavLink>
-            </span>{' '}
+              Don&apost have an account? <NavLink to="/">Sign up here!</NavLink>
+            </span>
             <br />
             <input id="login-btn" disabled={loading} type="submit" value="Login" />
           </form>

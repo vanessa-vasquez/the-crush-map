@@ -83,8 +83,7 @@ export default function InsertBar(props) {
         id="crush-form"
         onSubmit={(e) => {
           addCrush(e);
-        }}
-      >
+        }}>
         <label className="label" htmlFor="add-crush">
           Add a Crush:{' '}
         </label>

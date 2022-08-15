@@ -13,48 +13,45 @@ export default function SignUp() {
   const [uni, setUni] = useState('');
   const [pass, setPass] = useState('');
   const [error, setError] = useState('');
-  const [cy, setCy] = useState(() => {});
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCy(
-      cytoscape({
-        container: document.getElementById('home-cy'),
-        elements: [
-          {
-            data: { id: 'you' }
-          },
-          {
-            data: { id: 'me' }
-          },
-          {
-            data: { id: 'love', source: 'you', target: 'me' }
+    cytoscape({
+      container: document.getElementById('home-cy'),
+      elements: [
+        {
+          data: { id: 'you' }
+        },
+        {
+          data: { id: 'me' }
+        },
+        {
+          data: { id: 'love', source: 'you', target: 'me' }
+        }
+      ],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#666',
+            label: 'data(id)'
           }
-        ],
-        style: [
-          {
-            selector: 'node',
-            style: {
-              'background-color': '#666',
-              label: 'data(id)'
-            }
-          },
-          {
-            selector: 'edge',
-            style: {
-              width: 3,
-              'line-color': '#ccc',
-              'target-arrow-color': '#ccc',
-              'target-arrow-shape': 'triangle',
-              'curve-style': 'bezier',
-              label: 'data(id)'
-            }
+        },
+        {
+          selector: 'edge',
+          style: {
+            width: 3,
+            'line-color': '#ccc',
+            'target-arrow-color': '#ccc',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            label: 'data(id)'
           }
-        ]
-      })
-    );
+        }
+      ]
+    });
   }, []);
 
   const addUser = async (e) => {

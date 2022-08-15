@@ -2,12 +2,7 @@ import React, { useEffect } from 'react';
 import { database } from '../firebase.js';
 import { ref, get, child, remove } from 'firebase/database';
 
-export default function CrushList(props) {
-  const crushes = props.crushes;
-  const cy = props.cy;
-  const currentUserUni = props.userUni;
-  const dbRef = props.dbRef;
-
+export default function CrushList({ crushes, cy, currentUserUni, dbRef, setCrushes }) {
   useEffect(() => {
     if (cy) {
       styleChildren();
@@ -67,7 +62,7 @@ export default function CrushList(props) {
     }
 
     //Remove from crushes list
-    props.setCrushes((prevCrushes) => prevCrushes.filter((uni) => uni !== crush));
+    setCrushes((prevCrushes) => prevCrushes.filter((uni) => uni !== crush));
 
     //Remove from database
     let crushKey = 0;
@@ -104,7 +99,7 @@ export default function CrushList(props) {
 
   return (
     <div id="list">
-      {Object.keys(crushes).map((item, i) => {
+      {Object.keys(crushes).map((item) => {
         return (
           <div className="d-flex align-items-center crush" key={crushes[item]}>
             <button className="delete-btn" onClick={() => deleteCrush(crushes[item])}>
@@ -114,8 +109,7 @@ export default function CrushList(props) {
                 height="25"
                 fill="currentColor"
                 className="bi bi-x"
-                viewBox="0 0 16 16"
-              >
+                viewBox="0 0 16 16">
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
               </svg>
             </button>
