@@ -144,7 +144,7 @@ export default function SignUp() {
               name="uni"
               onChange={(e) => setUni(e.target.value)}
               placeholder="Columbia UNI"
-            />{' '}
+            />
             <br />
             <input
               type="password"
@@ -154,7 +154,7 @@ export default function SignUp() {
                 setPass(e.target.value);
               }}
               placeholder="Password"
-            />{' '}
+            />
             <br />
             <span>
               Already have an account? <NavLink to="/login">Login here!</NavLink>

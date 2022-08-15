@@ -1,17 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
 .logo {
   width: 250px;
   height: 150px;
 }
 
 .title {
-  font-size: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 35px;
+  margin-bottom: 14px;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+.desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
 }
 
 .info:hover {
@@ -20,23 +26,8 @@
 
 /* Medium size screens and bigger */
 @media only screen and (min-width: 768px) {
-  .info {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 50px;
-  }
 }
 
 /* Extra small size screens */
 @media only screen and (max-width: 575px) {
-  .logo {
-    width: 200px;
-    height: 100px;
-  }
-
-  .info {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
 }
