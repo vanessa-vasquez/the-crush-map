@@ -2,32 +2,38 @@
 .header-container {
   display: flex;
   justify-content: center;
-}
-
-.logo {
-  width: 250px;
-  height: 150px;
+  align-items: center;
 }
 
 .title {
   font-family: 'Inter', sans-serif;
-  font-size: 35px;
   margin-bottom: 14px;
+  font-size: 28px;
 }
 
 .desc {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
+  width: 230px;
 }
 
 .info:hover {
   cursor: grab;
 }
 
-/* Medium size screens and bigger */
-@media only screen and (min-width: 768px) {
+/* Extra small size screens */
+@media only screen and (min-width: 0px) {
+  .logo {
+    width: 60px;
+    height: 88px;
+  }
 }
 
-/* Extra small size screens */
-@media only screen and (max-width: 575px) {
+/* Large size screens and bigger */
+@media only screen and (min-width: 992px) {
+  .logo {
+    width: 100px;
+    height: 150px;
+    margin-right: 10px;
+  }
 }
