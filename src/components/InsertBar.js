@@ -84,18 +84,15 @@ export default function InsertBar(props) {
         onSubmit={(e) => {
           addCrush(e);
         }}>
-        <label className="label" htmlFor="add-crush">
-          Add a Crush:{' '}
-        </label>
         <input
           type="text"
           id="add-crush"
           name="add-crush"
-          placeholder="UNI of your crush"
+          placeholder="Enter your crush's UNI"
           value={crushUni}
           onChange={(e) => props.setCrushUni(e.target.value)}
         />
-        <input id="submit-btn" type="submit" value="Add" />
+        <input id="submit-btn" type="submit" value="Submit" />
       </form>
       {error && (
         <Alert id="error" className="text-center" key="danger" variant="danger">

@@ -1,31 +1,67 @@
-/* Identifier.js */
+/* CrushMap.js */
+.crush-map {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  background: url('../assets/map_background.svg') no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.map-container {
+  width: 100%;
+  height: 700px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0 42px 0 42px;
+}
+
 .user-info {
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.cy-options {
+  position: absolute;
+  left: 90%;
+  top: 54px;
+  z-index: 1;
+}
+
+#log-out-btn {
+  position: absolute;
+  bottom: 0;
 }
 
 #log-out-btn,
-#submit-btn,
 .cy-options button {
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  border-radius: 5px;
-  background-color: white;
-  color: black;
+  background-color: #ff4f42;
+  color: white;
+  border-radius: 20px;
+  border-style: none;
+  width: 120px;
+  padding: 5px;
   font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 #log-out-btn:hover,
 .cy-options button:hover {
-  background-color: #bababa;
-}
-
-#log-out-btn {
-  float: right;
-  margin-bottom: 30px;
+  background-color: #c84137;
 }
 
 /* InsertBar.js */
+#submit-btn {
+  height: 40px;
+  padding: 0 30px 0 30px;
+  background-color: white;
+  border-style: none;
+  border-radius: 10px;
+}
+
 #submit-btn:hover {
   background-image: url('../assets/crush_heart.svg');
   background-repeat: no-repeat;
@@ -33,11 +69,38 @@
   color: transparent;
 }
 
-#submit-btn {
-  padding: 0px 15px 0px 15px;
+/* CrushList.js, Visualization.js */
+.list-container {
+  position: relative;
+  border-right: 1px solid black;
+  height: 584px;
+  margin-top: 54px;
 }
 
-/* CrushList.js, Visualization.js */
+.visualization-container {
+  position: relative;
+}
+
+.crush {
+  margin-top: 20px;
+}
+
+.all-crushes {
+  font-size: 18px;
+  position: absolute;
+  top: 54px;
+  left: 32px;
+  z-index: 1;
+}
+
+.all-matches {
+  font-size: 18px;
+  position: absolute;
+  top: 108px;
+  left: 32px;
+  z-index: 1;
+}
+
 .delete-btn {
   border-style: none;
   background-color: transparent;
@@ -48,81 +111,36 @@
   transform: scale(1.2);
 }
 
-.crush {
-  margin-top: 20px;
-}
-
 /* Medium size screens and bigger */
 @media only screen and (min-width: 768px) {
-  label {
+  .label {
+    font-size: 18px;
+    font-weight: 700;
     margin-bottom: 20px;
     margin-right: 20px;
   }
 
-  #add-crush {
-    width: 60%;
-    margin-right: 40px;
+  #cy {
+    height: 700px;
   }
 
-  #list,
-  #cy {
+  #add-crush {
+    height: 40px;
+    width: 80%;
+    padding-left: 24px;
+    border-color: #b8b8b8;
+    border-radius: 10px;
     border-style: solid;
     border-width: 1px;
-    border-radius: 10px;
-    width: 100%;
-    height: 80vh;
-    background-color: white;
-  }
-
-  .cy-options button {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-/* Extra small size screens */
-@media only screen and (max-width: 575px) {
-  label {
-    display: none;
-  }
-
-  #add-crush {
-    width: 60%;
     margin-bottom: 20px;
+    margin-right: 30px;
   }
 
-  #list,
-  #cy {
-    border-style: solid;
-    border-width: 1px;
+  #add-crush:focus {
+    outline: none;
+    border-color: #ff5143;
     border-radius: 10px;
-    width: 100%;
-    height: 60vh;
-    background-color: white;
-  }
-
-  #submit-btn {
-    float: right;
-  }
-
-  #toggle-crushes-btn {
-    border-style: none;
-    background-color: transparent;
-    margin-bottom: 10px;
-    color: black;
-  }
-
-  #toggle-crushes-chevron {
-    margin-left: 5px;
-    transition-duration: 0.5s;
-  }
-
-  .toggle {
-    transform: rotate(90deg);
-  }
-
-  .cy-options button {
-    width: 100%;
-    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 3px;
   }
 }

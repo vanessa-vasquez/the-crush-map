@@ -17,6 +17,11 @@
   width: 230px;
 }
 
+.info {
+  float: right;
+  margin-top: 50px;
+}
+
 .info:hover {
   cursor: grab;
 }
