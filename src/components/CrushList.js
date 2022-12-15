@@ -74,7 +74,7 @@ export default function CrushList({ crushes, cy, currentUserUni, dbRef, setCrush
         if (snapshot.exists()) {
           Object.keys(snapshot.val()).forEach((key) => {
             let targets = snapshot.val()[key];
-
+            console.log(targets);
             Object.keys(targets).forEach((key) => {
               if (targets[key] === crush) {
                 crushKey = key;
@@ -93,8 +93,6 @@ export default function CrushList({ crushes, cy, currentUserUni, dbRef, setCrush
     const dbCrushRef = ref(database, 'crushes/' + currentUserUni + '/targets/' + String(crushKey));
 
     remove(dbCrushRef);
-
-    console.log('Deleted', crush);
   };
 
   return (

@@ -5,7 +5,7 @@
   align-items: center;
   background: url('../assets/map_background.svg') no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 
 .map-container {

@@ -75,14 +75,6 @@ export default function CrushMap() {
     setData(data);
   };
 
-  // const toggleCrushes = (open) => {
-  //   if (open) {
-  //     document.getElementById('toggle-crushes-chevron').classList.add('toggle');
-  //   } else {
-  //     document.getElementById('toggle-crushes-chevron').classList.remove('toggle');
-  //   }
-  // };
-
   const handleLogOut = async () => {
     try {
       await logout();
@@ -146,9 +138,9 @@ export default function CrushMap() {
             <CrushList
               dbRef={dbRef}
               cy={cy}
+              currentUserUni={currentUserUni}
               crushes={crushes}
               setCrushes={setCrushes}
-              userUni={currentUserUni}
             />
             <button id="log-out-btn" onClick={handleLogOut}>
               Log Out
@@ -171,69 +163,6 @@ export default function CrushMap() {
             </div>
           </Col>
         </Row>
-        {/* <Row>
-          <Col md={2}>
-            <div className="d-md-none">
-              <button
-                onClick={() => {
-                  setOpen(!open);
-                  toggleCrushes(!open);
-                }}
-                id="toggle-crushes-btn"
-                aria-controls="collapse-crushes"
-                aria-expanded={open}>
-                <div className="d-flex">
-                  <div className="label">Your Crushes</div>
-                  <div id="toggle-crushes-chevron">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-caret-right"
-                      viewBox="0 0 16 16">
-                      <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
-                    </svg>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div className="d-block d-md-none">
-              <Collapse in={open}>
-                <div id="collapse-crushes">
-                  <CrushList
-                    dbRef={dbRef}
-                    cy={cy}
-                    crushes={crushes}
-                    setCrushes={setCrushes}
-                    userUni={currentUserUni}
-                  />
-                </div>
-              </Collapse>
-            </div>
-            <div className="d-none d-sm-none d-md-block">
-              <CrushList
-                dbRef={dbRef}
-                cy={cy}
-                crushes={crushes}
-                setCrushes={setCrushes}
-                userUni={currentUserUni}
-              />
-            </div>
-          </Col>
-          <Col md={8}>
-            <Visualization
-              crushes={crushes}
-              data={data}
-              cy={cy}
-              setCy={setCy}
-              userUni={currentUserUni}
-            />
-          </Col>
-          <Col md={2}>
-            <VisualizationControls cy={cy} userUni={currentUserUni} />
-          </Col>
-        </Row> */}
       </Container>
     </div>
   );
