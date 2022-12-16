@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import MapHeader from './MapHeader';
-// import Identifier from './Identifier';
 import InsertBar from './InsertBar';
 import Visualization from './Visualization';
 import VisualizationControls from './VisualizationControls';
@@ -20,7 +19,6 @@ export default function CrushMap() {
   const [cy, setCy] = useState(null);
   const [data, setData] = useState([]);
   const [crushes, setCrushes] = useState([]);
-  // const [open, setOpen] = useState(false);
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const currentUserUni = currentUser.email.replace('@columbia.edu', '');
@@ -120,7 +118,7 @@ export default function CrushMap() {
           </Col>
         </Row>
         <Row>
-          <Col md={10}>
+          <Col md={11}>
             <InsertBar
               cy={cy}
               crushUni={crushUni}
@@ -132,7 +130,7 @@ export default function CrushMap() {
           </Col>
         </Row>
         <Row className="map-container">
-          <Col md={2} className="list-container">
+          <Col md={2} className="d-none d-md-block list-container">
             <div className="user-info">You: {currentUserUni}</div>
             <div className="label">Your Crushes</div>
             <CrushList
@@ -147,12 +145,8 @@ export default function CrushMap() {
             </button>
           </Col>
           <Col md={10}>
-            <div className="visualization-container">
-              <div className="all-crushes">All crushes:</div>
-              <div className="all-matches">All matches:</div>
-
+            <div className="d-none d-md-block visualization-container">
               <VisualizationControls cy={cy} userUni={currentUserUni} />
-
               <Visualization
                 crushes={crushes}
                 data={data}

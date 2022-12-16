@@ -17,13 +17,23 @@
   width: 230px;
 }
 
-.info {
-  float: right;
-  margin-top: 50px;
-}
-
 .info:hover {
   cursor: grab;
+}
+
+/* Large size screens and bigger */
+@media only screen and (min-width: 992px) {
+  .logo,
+  .map-header-logo {
+    width: 100px;
+    height: 150px;
+    margin-right: 10px;
+  }
+
+  .info {
+    float: right;
+    margin-top: 50px;
+  }
 }
 
 /* Extra small size screens */
@@ -32,13 +42,16 @@
     width: 60px;
     height: 88px;
   }
-}
 
-/* Large size screens and bigger */
-@media only screen and (min-width: 992px) {
-  .logo {
+  .map-header-logo {
     width: 100px;
-    height: 150px;
-    margin-right: 10px;
+    height: 100px;
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }

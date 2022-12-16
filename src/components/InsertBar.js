@@ -84,15 +84,17 @@ export default function InsertBar(props) {
         onSubmit={(e) => {
           addCrush(e);
         }}>
-        <input
-          type="text"
-          id="add-crush"
-          name="add-crush"
-          placeholder="Enter your crush's UNI"
-          value={crushUni}
-          onChange={(e) => props.setCrushUni(e.target.value)}
-        />
-        <input id="submit-btn" type="submit" value="Submit" />
+        <div className="submit-controls">
+          <input
+            type="text"
+            id="add-crush"
+            name="add-crush"
+            placeholder="Enter your crush's UNI"
+            value={crushUni}
+            onChange={(e) => props.setCrushUni(e.target.value)}
+          />
+          <input id="submit-btn" type="submit" value="Submit" />
+        </div>
       </form>
       {error && (
         <Alert id="error" className="text-center" key="danger" variant="danger">
