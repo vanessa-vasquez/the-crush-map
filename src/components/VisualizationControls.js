@@ -18,7 +18,7 @@ export default function VisualizationControls(props) {
   };
 
   return (
-    <div className="cy-options">
+    <div className="d-none d-md-block cy-options">
       <button onClick={centerView}>Center</button>
       <button onClick={viewAll}>View All</button>
       <button onClick={resetView}>Reset</button>

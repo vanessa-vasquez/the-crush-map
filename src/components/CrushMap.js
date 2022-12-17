@@ -3,30 +3,38 @@ import MapHeader from './MapHeader';
 import InsertBar from './InsertBar';
 import Visualization from './Visualization';
 import VisualizationControls from './VisualizationControls';
-import CrushList from './CrushList';
 import { useAuth } from '../contexts/AuthContext.js';
-import { Container, Row, Col } from 'react-bootstrap';
-import { Popover, OverlayTrigger } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import CrushList from './CrushList';
+import { Container, Row, Col, Popover, OverlayTrigger, Collapse } from 'react-bootstrap';
 
 import { database } from '../firebase.js';
 import { ref, get, child } from 'firebase/database';
 
 import '../styles/CrushMap.css';
+import Logout from './Logout';
 
 export default function CrushMap() {
   const [crushUni, setCrushUni] = useState('');
   const [cy, setCy] = useState(null);
   const [data, setData] = useState([]);
   const [crushes, setCrushes] = useState([]);
-  const { currentUser, logout } = useAuth();
-  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const { currentUser } = useAuth();
+
   const currentUserUni = currentUser.email.replace('@columbia.edu', '');
   const dbRef = ref(database);
 
   useEffect(() => {
     loadData();
   }, []);
+
+  const toggleCrushes = (open) => {
+    if (open) {
+      document.getElementById('toggle-crushes-chevron').classList.add('toggle');
+    } else {
+      document.getElementById('toggle-crushes-chevron').classList.remove('toggle');
+    }
+  };
 
   const loadData = async () => {
     let data = [];
@@ -71,15 +79,6 @@ export default function CrushMap() {
     });
 
     setData(data);
-  };
-
-  const handleLogOut = async () => {
-    try {
-      await logout();
-      navigate('/login');
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const popoverLeft = (
@@ -129,6 +128,52 @@ export default function CrushMap() {
             />
           </Col>
         </Row>
+        <Row>
+          <Col xs={12} className="d-block d-md-none">
+            <button
+              onClick={() => {
+                setOpen(!open);
+                toggleCrushes(!open);
+              }}
+              id="toggle-crushes-btn"
+              aria-controls="collapse-crushes"
+              aria-expanded={open}>
+              <div className="d-flex">
+                <div id="toggle-crushes-chevron">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="bi bi-caret-right"
+                    viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                  </svg>
+                </div>
+                <div className="label">Your Crushes</div>
+              </div>
+            </button>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={11} sm={11} className="d-block d-md-none">
+            <Collapse in={open}>
+              <div id="collapse-crushes">
+                <div className="collapsible-list-container">
+                  <div className="user-info">You: {currentUserUni}</div>
+                  <div className="label">Your Crushes</div>
+                  <CrushList
+                    dbRef={dbRef}
+                    cy={cy}
+                    currentUserUni={currentUserUni}
+                    crushes={crushes}
+                    setCrushes={setCrushes}
+                  />
+                </div>
+              </div>
+            </Collapse>
+          </Col>
+        </Row>
         <Row className="map-container">
           <Col md={2} className="d-none d-md-block list-container">
             <div className="user-info">You: {currentUserUni}</div>
@@ -140,12 +185,10 @@ export default function CrushMap() {
               crushes={crushes}
               setCrushes={setCrushes}
             />
-            <button id="log-out-btn" onClick={handleLogOut}>
-              Log Out
-            </button>
+            <Logout />
           </Col>
           <Col md={10}>
-            <div className="d-none d-md-block visualization-container">
+            <div className="visualization-container">
               <VisualizationControls cy={cy} userUni={currentUserUni} />
               <Visualization
                 crushes={crushes}
@@ -155,6 +198,11 @@ export default function CrushMap() {
                 userUni={currentUserUni}
               />
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} className="d-block d-md-none d-flex justify-content-center">
+            <Logout />
           </Col>
         </Row>
       </Container>
